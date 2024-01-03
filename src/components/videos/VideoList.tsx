@@ -16,12 +16,12 @@ export const VideoList = () => {
     }, [])
 
     return (
-        <>
+        <div className='grid grid-cols-4 gap-5 place-items-center'>
             {
                 videos.map(video => (
                     <VideoItem key={video._id} video={video} />
                 ))
             }
-        </>
+        </div>
     )
 }

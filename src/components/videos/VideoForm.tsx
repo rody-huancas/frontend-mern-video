@@ -1,11 +1,14 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState} from 'react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import { Video } from './Video';
 import * as videoService from './VideoService';
+
 
 type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 export const VideoForm = () => {
-
+    const navigate = useNavigate();
     const [video, setVideo] = useState<Video>({title:"", description:"", url: "",})
 
     const handleInputChange = (e: InputChange)=>{
@@ -14,9 +17,9 @@ export const VideoForm = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        const response = await videoService.createVideo(video);
-        console.log(response);
-        
+        await videoService.createVideo(video);
+        toast.success("Nuevo vídeo agregado");
+        navigate("/");
     }
 
     return (
