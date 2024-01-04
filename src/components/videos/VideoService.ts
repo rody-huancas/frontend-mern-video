@@ -4,7 +4,7 @@ import { Video } from "./Video";
 const API = "http://localhost:3000";
 
 export const getVideos = async () => {
-    const { data } = await axios(`${API}/videos/`);
+    const { data } = await axios<Video[]>(`${API}/videos/`);
     return data;
 }
 
