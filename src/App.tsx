@@ -13,6 +13,7 @@ const App = () => {
           <Route path="/" element={<Layout/>}>
             <Route index element={<VideoList />} />
             <Route path="/new-video" element={<VideoForm />} />
+            <Route path="/update/:id" element={<VideoForm />} />
           </Route>
         </Routes>
       </BrowserRouter>

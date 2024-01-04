@@ -1,0 +1,5 @@
+
+.video-card:hover{
+    cursor: pointer;
+    transition: cursor .5s ease;
+}
